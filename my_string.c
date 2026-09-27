@@ -59,3 +59,17 @@ char* my_strchr(const char* str, const int chr)
 
 	return NULL;
 }
+
+int my_strcmp(const char* str1, const char* str2)
+{
+	int ptr = 0;
+	int dif = 0;
+
+	while ((dif = str1[ptr] - str2[ptr]) == 0
+	&&     (str1[ptr] && str2[ptr]))
+	{
+		ptr++;
+	}
+
+	return dif;
+}

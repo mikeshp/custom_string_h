@@ -12,6 +12,21 @@
 	#include "my_string_names.h"
 #endif
 
+void prompt_char_found(const char* str, const char chr, const char* arg)
+{
+	printf(
+	"The character \"%c\" was found in the %s string at position %d.\n",
+	chr,arg,((int)strlen(str) - (int)strlen(strchr(str,chr))) + 1);
+}
+
+void prompt_strings_in_order(const char* str1, const char* str2)
+{
+	printf("Two strings in alphabetical order:\n");
+	printf("\"%s\", \"%s\"\n",
+	strcmp(str1,str2) > 0 ? str2 : str1,
+	strcmp(str1,str2) > 0 ? str1 : str2);
+}
+
 void prompt_header(enum Header header)
 {
 	printf("\n# %s\n\n",header_lines[header]);

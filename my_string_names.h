@@ -9,5 +9,6 @@
 #define strlen(x) my_strlen(x)
 #define strcat(x,y) my_strcat(x,y)
 #define strchr(x,y) my_strchr(x,y)
+#define strcmp(x,y) my_strcmp(x,y)
 
 #endif

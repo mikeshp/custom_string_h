@@ -21,8 +21,6 @@ int main()
 	/* Prompt user for the strings */
 
 	prompt_header(HEADER);
-//	printf("\n# Custom implementation of the <string.h> functions\n\n");
-
 	prompt_user("Enter a string");
 
 	if (fgets(string_1,sizeof(string_1),stdin) == NULL)
@@ -42,16 +40,13 @@ int main()
 	/* Strlen() */
 
 	prompt_header(STRLEN);
-//	printf("\n# strlen() - Return the length of a string\n\n");
 
-	printf("Your string is: %s\n",string_1);
+	printf("Your string is: \"%s\"\n",string_1);
 	printf("Its length is %zu characters.\n",strlen(string_1));
 
 	/* Strcat() */
 
 	prompt_header(STRCAT);
-//	printf("\n# strcat() - Append one string to the end of another\n\n");
-
 	prompt_user("Enter a second string");
 
 	if (fgets(string_2,sizeof(string_2),stdin) == NULL)
@@ -70,8 +65,12 @@ int main()
 
 	if (can_concatenate(string_1,string_2))
 	{
-		printf("Two strings together: %s\n",
+		// keep string_1 intact after concatenation
+//		string_3 = string_1;
+
+		printf("Two strings together: \"%s\"\n",
 		strcat(string_1,string_2));
+
 		printf("Concatenated string's length is %zu.\n",
 		strlen(string_1));
 	}
@@ -83,8 +82,6 @@ int main()
 	/* Strchr() */
 
 	prompt_header(STRCHR);
-//	printf("\n# strchr() - Return a pointer to the first occurance of a character in a string\n\n");
-
 	prompt_user("Enter a character");
 
 	if (scanf("%c",&input_char) != 1)
@@ -96,15 +93,45 @@ int main()
 		clear_buffer();
 	}
 
-	if (strchr(string_1,input_char) == NULL)
+	if (strchr(string_1,input_char) == NULL
+	&&  strchr(string_2,input_char) == NULL)
 	{
-		printf("The character was not found in your string.\n");
+		printf("The character was not found in your strings.\n");
 	}
 	else
 	{
-		printf("The character \"%c\" is found at position %d.\n",
-		input_char,(int)(strlen(string_1) -
-		strlen(strchr(string_1,input_char))) + 1);
+		if (strchr(string_1,input_char) != NULL)
+		{
+			prompt_char_found(string_1,input_char,"first");
+		}
+
+		if (strchr(string_2,input_char) != NULL)
+		{
+			prompt_char_found(string_2,input_char,"second");
+		}
+	}
+
+	/* Strcmp() */
+
+	prompt_header(STRCMP);
+
+	if (strcmp(string_1,string_2) == 0)
+	{
+		printf("Both strings are alphabetically equal.\n");
+	}
+	else if (strcmp(string_1,string_2) > 0)
+	{
+		printf("First string is greater than the second.\n");
+		prompt_strings_in_order(string_1,string_2);
+	}
+	else if (strcmp(string_1,string_2) < 0)
+	{
+		printf("Second string is greater than the first.\n");
+		prompt_strings_in_order(string_1,string_2);
+	}
+	else
+	{
+		prompt_error("Wrong comparison");
 	}
 
 	/* End of program */
