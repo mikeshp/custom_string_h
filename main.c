@@ -6,8 +6,8 @@
 
 #include <stdio.h>
 
-#include "functions.h"
 #include "globals.h"
+#include "functions.h"
 
 #ifndef CUSTOM_LIB
 	#include <string.h>
@@ -20,7 +20,8 @@ int main()
 {
 	/* Prompt user for the strings */
 
-	printf("\n# Custom implementation of the <string.h> functions\n\n");
+	prompt_header(HEADER);
+//	printf("\n# Custom implementation of the <string.h> functions\n\n");
 
 	prompt_user("Enter a string");
 
@@ -40,14 +41,16 @@ int main()
 
 	/* Strlen() */
 
-	printf("\n# strlen() - Return the length of a string\n\n");
+	prompt_header(STRLEN);
+//	printf("\n# strlen() - Return the length of a string\n\n");
 
 	printf("Your string is: %s\n",string_1);
 	printf("Its length is %zu characters.\n",strlen(string_1));
 
 	/* Strcat() */
 
-	printf("\n# strcat() - Append one string to the end of another\n\n");
+	prompt_header(STRCAT);
+//	printf("\n# strcat() - Append one string to the end of another\n\n");
 
 	prompt_user("Enter a second string");
 
@@ -79,7 +82,8 @@ int main()
 
 	/* Strchr() */
 
-	printf("\n# strchr() - Return a pointer to the first occurance of a character in a string\n\n");
+	prompt_header(STRCHR);
+//	printf("\n# strchr() - Return a pointer to the first occurance of a character in a string\n\n");
 
 	prompt_user("Enter a character");
 

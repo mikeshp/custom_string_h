@@ -12,6 +12,11 @@
 	#include "my_string_names.h"
 #endif
 
+void prompt_header(enum Header header)
+{
+	printf("\n# %s\n\n",header_lines[header]);
+}
+
 void clear_string(char* string)
 {
 	int c = 0;
