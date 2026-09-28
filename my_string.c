@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "my_string.h"
+#include "my_string_names.h"
 
 size_t my_strlen(const char* string)
 {
@@ -87,4 +88,26 @@ char* my_strcpy(char* destin, const char* source)
 	destin[ptr] = '\0';
 
 	return destin;
+}
+
+size_t my_strcspn(const char* string, const char* chars)
+{
+	int ptr = 0;
+	size_t occ = strlen(string);
+	size_t smaller_occ = occ;
+
+	while (chars[ptr] != '\0')
+	{
+		if (strchr(string,chars[ptr]) != NULL
+		&& (smaller_occ = strlen(string)
+		-   strlen(strchr(string,chars[ptr])))
+		<   occ)
+		{
+			occ = smaller_occ;
+		}
+
+		ptr++;
+	}
+
+	return occ;
 }

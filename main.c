@@ -154,7 +154,7 @@ int main()
 	if (can_copy(string_3,string_1))
 	{
 		printf("Success!\n");
-		printf("Third string (copied from the first): %s\n",
+		printf("Third string (copied from the first): \"%s\"\n",
 		strcpy(string_3,string_1));
 	}
 	else
@@ -172,7 +172,7 @@ int main()
 	if (can_concatenate(string_3,string_2))
 	{
 		printf("Success!\n");
-		printf("The concatenated string is now: %s\n",
+		printf("The concatenated string is now: \"%s\"\n",
 		strcat(string_3,string_2));
 	}
 	else
@@ -187,6 +187,25 @@ int main()
 	{
 		prompt_error("Wrong input");
 		return 1;
+	}
+
+	if (string_4[strlen(string_4) - 1] == '\n')
+	{
+		clear_string(string_4);
+	}
+	else
+	{
+		clear_buffer();
+	}
+
+	if (strcspn(string_3,string_4) == strlen(string_3))
+	{
+		printf("None of the characters were found in the string!\n");
+	}
+	else
+	{
+		printf("Length before the character \"%c\" is found is: %zu.\n",
+		string_3[strcspn(string_3,string_4)],strcspn(string_3,string_4));
 	}
 
 	/* End of program */
