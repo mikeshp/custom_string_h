@@ -26,6 +26,7 @@ int main()
 	if (fgets(string_1,sizeof(string_1),stdin) == NULL)
 	{
 		prompt_error("Wrong input");
+		return 1;
 	}
 
 	if (string_1[strlen(string_1) - 1] == '\n')
@@ -52,6 +53,7 @@ int main()
 	if (fgets(string_2,sizeof(string_2),stdin) == NULL)
 	{
 		prompt_error("Wrong input");
+		return 1;
 	}
 
 	if (string_2[strlen(string_2) - 1] == '\n')
@@ -77,6 +79,7 @@ int main()
 	else
 	{
 		prompt_error("Buffer too low");
+		return 1;
 	}
 
 	/* Strchr() */
@@ -87,6 +90,7 @@ int main()
 	if (scanf("%c",&input_char) != 1)
 	{
 		prompt_error("Wrong input");
+		return 1;
 	}
 	else
 	{
@@ -132,6 +136,7 @@ int main()
 	else
 	{
 		prompt_error("Wrong comparison");
+		return 1;
 	}
 
 	/* Strcoll() */
@@ -155,6 +160,33 @@ int main()
 	else
 	{
 		prompt_error("Buffer too low");
+		return 1;
+	}
+
+	/* Strcspn() */
+
+	prompt_header(STRCSPN);
+
+	printf("Attempt to concatenate the second string into the third...");
+
+	if (can_concatenate(string_3,string_2))
+	{
+		printf("Success!\n");
+		printf("The concatenated string is now: %s\n",
+		strcat(string_3,string_2));
+	}
+	else
+	{
+		prompt_error("Buffer too low");
+		return 1;
+	}
+
+	prompt_user("Enter a sequence of characters to find in the string");
+
+	if (fgets(string_4,sizeof(string_4),stdin) == NULL)
+	{
+		prompt_error("Wrong input");
+		return 1;
 	}
 
 	/* End of program */

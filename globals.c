@@ -3,6 +3,7 @@
 char string_1[STRING_SIZE];
 char string_2[STRING_SIZE];
 char string_3[STRING_SIZE];
+char string_4[STRING_SIZE];
 char input_char;
 
 char* header_lines[] =
@@ -14,4 +15,5 @@ char* header_lines[] =
 	,"strcmp() - Compare the ASCII values of characters in two strings to determine which string has a higher value"
 	,"strcoll() - Compare two strings based on the current locale"
 	,"strcpy() - Copy the characters of a string into the memory of another string"
+	,"strcspn() - Return the length of a string up to the first occurrence of one of the specified characters"
 };
