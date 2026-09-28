@@ -73,3 +73,18 @@ int my_strcmp(const char* str1, const char* str2)
 
 	return dif;
 }
+
+char* my_strcpy(char* destin, const char* source)
+{
+	int ptr = 0;
+
+	while (source[ptr] != '\0')
+	{
+		destin[ptr] = source[ptr];
+		ptr++;
+	}
+
+	destin[ptr] = '\0';
+
+	return destin;
+}

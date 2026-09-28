@@ -53,7 +53,17 @@ void clear_buffer()
 	while ((clear = getchar()) != '\n' && clear != EOF);
 }
 
-int can_concatenate(char* destin, char* source)
+int can_copy(const char* destin, const char* source)
+{
+	if (strlen(destin) < strlen(source) + 1)
+	{
+		return 0;
+	}
+
+	return 1;
+}
+
+int can_concatenate(const char* destin, const char* source)
 {
 	if ((strlen(destin) + strlen(source) + 1) > STRING_SIZE)
 	{

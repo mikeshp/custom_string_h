@@ -10,6 +10,8 @@ enum Header
 	,STRCAT
 	,STRCHR
 	,STRCMP
+	,STRCOLL
+	,STRCPY
 };
 
 extern char string_1[STRING_SIZE];

@@ -12,4 +12,6 @@ char* header_lines[] =
 	,"strcat() - Append one string to the end of another"
 	,"strchr() - Return a pointer to the first occurance of a character in a string"
 	,"strcmp() - Compare the ASCII values of characters in two strings to determine which string has a higher value"
+	,"strcoll() - Compare two strings based on the current locale"
+	,"strcpy() - Copy the characters of a string into the memory of another string"
 };

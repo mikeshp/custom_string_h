@@ -10,5 +10,6 @@ size_t my_strlen(const char*);
 char*  my_strcat(char*,const char*);
 char*  my_strchr(const char*,const int);
 int    my_strcmp(const char*,const char*);
+char*  my_strcpy(char*, const char*);
 
 #endif

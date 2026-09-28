@@ -65,14 +65,14 @@ int main()
 
 	if (can_concatenate(string_1,string_2))
 	{
-		// keep string_1 intact after concatenation
-//		string_3 = string_1;
+		// keep string_1 intact after demonstration
+		strcpy(string_3,string_1);
 
 		printf("Two strings together: \"%s\"\n",
-		strcat(string_1,string_2));
+		strcat(string_3,string_2));
 
 		printf("Concatenated string's length is %zu.\n",
-		strlen(string_1));
+		strlen(string_3));
 	}
 	else
 	{
@@ -132,6 +132,29 @@ int main()
 	else
 	{
 		prompt_error("Wrong comparison");
+	}
+
+	/* Strcoll() */
+
+	prompt_header(STRCOLL);
+
+	// Add later
+
+	/* Strcpy() */
+
+	prompt_header(STRCPY);
+
+	printf("Attempt to make a copy of the first string in the third...");
+
+	if (can_copy(string_3,string_1))
+	{
+		printf("Success!\n");
+		printf("Third string (copied from the first): %s\n",
+		strcpy(string_3,string_1));
+	}
+	else
+	{
+		prompt_error("Buffer too low");
 	}
 
 	/* End of program */

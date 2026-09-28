@@ -9,7 +9,8 @@
 
 void clear_string(char*);
 void clear_buffer();
-int  can_concatenate(char*,char*);
+int  can_concatenate(const char*,const char*);
+int  can_copy(const char*,const char*);
 void prompt_user(const char*);
 void prompt_error(const char*);
 void prompt_header(enum Header);
