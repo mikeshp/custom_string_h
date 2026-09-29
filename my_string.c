@@ -136,9 +136,30 @@ char* my_strerror(int errnum)
 
 		while (errnum != 0)
 		{
-			errnum_convert[ptr] = (char) (errnum % 10) + '0';
-			errnum = errnum / 10;
+			int cut;
+			int dig;
+
+			// get the left digit from errnum
+			cut = errnum;
+			while (cut != 0)
+			{
+				dig = cut;
+				cut = cut / 10;
+			}
+
+			// write the left digit under the pointer
+			errnum_convert[ptr] = (char) dig + '0';
 			ptr++;
+
+			// cut the left digit from errnum
+			cut = errnum / 10;
+			while (cut != 0)
+			{
+				dig = dig * 10;
+				cut = cut / 10;
+			}
+
+			errnum = errnum - dig;
 		}
 
 		errnum_convert[ptr] = '\0';
