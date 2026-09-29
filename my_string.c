@@ -43,6 +43,21 @@ char* my_strcat(char* destin, const char* source)
 	return destin;
 }
 
+char* my_strncat(char* destin, const char* source, size_t number)
+{
+	int l = (int) strlen(destin);
+	int i;
+
+	for (i = 0; i < (int) number; i++)
+	{
+		destin[l + i] = source[i];
+	}
+
+	destin[l + i] = '\0';
+
+	return destin;
+}
+
 char* my_strchr(const char* str, const int chr)
 {
 	int ptr = 0;

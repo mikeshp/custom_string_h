@@ -234,6 +234,34 @@ int main()
 	prompt_pause();
 	prompt_header(STRNCAT);
 
+	// Keep string_1 intact after demonstration
+	strcpy(string_3,string_1);
+
+	printf("First string is: \"%s\"\n",string_3);
+	printf("Second string is: \"%s\"\n",string_2);
+	prompt_user("Enter a number of characters from the second string");
+
+	long unsigned int input_number;
+	if (scanf(" %lu",&input_number) != 1
+	||  input_number > strlen(string_2))
+	{
+		prompt_error("Wrong input");
+		clear_buffer();
+		return 1;
+	}
+	clear_buffer();
+
+	if (can_concatenate(string_3,string_2))
+	{
+		printf("Result in the first string: \"%s\"\n",
+		strncat(string_3,string_2,input_number));
+	}
+	else
+	{
+		prompt_error("Buffer too low");
+		return 1;
+	}
+
 	/* End of program */
 
 	prompt_goodbye();
