@@ -12,5 +12,6 @@
 #define strcmp(x,y) my_strcmp(x,y)
 #define strcpy(x,y) my_strcpy(x,y)
 #define strcspn(x,y) my_strcspn(x,y)
+#define strerror(x) my_strerror(x)
 
 #endif

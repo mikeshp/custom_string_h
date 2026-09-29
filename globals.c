@@ -1,12 +1,13 @@
 #include "globals.h"
 
-char string_1[STRING_SIZE];
-char string_2[STRING_SIZE];
-char string_3[STRING_SIZE];
-char string_4[STRING_SIZE];
-char input_char;
+char  string_1[STRING_SIZE];
+char  string_2[STRING_SIZE];
+char  string_3[STRING_SIZE];
+char  string_4[STRING_SIZE];
+char  input_char;
+const int error_limit = 5;
 
-char* header_lines[] =
+const char* header_lines[] =
 {
 	 "Custom implementation of the <string.h> functions"
 	,"strlen() - Return the length of a string"
@@ -16,4 +17,15 @@ char* header_lines[] =
 	,"strcoll() - Compare two strings based on the current locale"
 	,"strcpy() - Copy the characters of a string into the memory of another string"
 	,"strcspn() - Return the length of a string up to the first occurrence of one of the specified characters"
+	,"strerror() - Return a string describing the meaning of an error code"
+};
+
+char* error_lines[] =
+{
+	 "Sucess"
+	,"Operarion not permitted"
+	,"No such file or directory"
+	,"No such process"
+	,"Interpreted system call"
+	,"Input/output error"
 };

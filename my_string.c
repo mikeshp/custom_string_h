@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 
+#include "globals.h"
 #include "my_string.h"
 #include "my_string_names.h"
 
@@ -110,4 +111,43 @@ size_t my_strcspn(const char* string, const char* chars)
 	}
 
 	return occ;
+}
+
+char* my_strerror(int errnum)
+{
+	if (errnum < 0 || errnum >= error_limit)
+	{
+		static char unknown_error[] = "Unknown error";
+		static char error_number[20];
+		strcpy(error_number,unknown_error);
+		strcat(error_number," ");
+
+		// since we can't use external functions
+		// have to convert errnum into a string
+		static char errnum_convert[8];
+		int ptr = 0;
+
+		if (errnum < 0)
+		{
+			errnum_convert[ptr] = '-';
+			errnum = errnum * -1;
+			ptr++;
+		}
+
+		while (errnum != 0)
+		{
+			errnum_convert[ptr] = (char) (errnum % 10) + '0';
+			errnum = errnum / 10;
+			ptr++;
+		}
+
+		errnum_convert[ptr] = '\0';
+		strcat(error_number,errnum_convert);
+
+		return error_number;
+	}
+	else
+	{
+		return error_lines[errnum];
+	}
 }

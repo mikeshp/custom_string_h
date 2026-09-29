@@ -208,6 +208,22 @@ int main()
 		string_3[strcspn(string_3,string_4)],strcspn(string_3,string_4));
 	}
 
+	/* Strerror() */
+
+	prompt_header(STRERROR);
+
+	printf("Examples of what strerror() returns with custom errnum.\n");
+	printf("Locale will be ignored since it's beyond the scope of this project.\n");
+	printf("Any indice beyond 0 - %d range will be interpreted as \"unknown\":\n",error_limit);
+
+	printf("\t124 -> %s\n",strerror(124));
+	printf("\t-57 -> %s\n",strerror(-57));
+
+	for (int i = -2; i <= (error_limit + 2); i++)
+	{
+		printf("\t%2d -> %s\n",i,strerror(i));
+	}
+
 	/* End of program */
 
 	return 0;
