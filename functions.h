@@ -7,6 +7,8 @@
 
 #include "globals.h"
 
+void prompt_pause();
+void prompt_goodbye();
 void clear_string(char*);
 void clear_buffer();
 int  can_concatenate(const char*,const char*);

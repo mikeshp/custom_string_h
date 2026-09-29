@@ -40,6 +40,7 @@ int main()
 
 	/* Strlen() */
 
+//	prompt_pause();
 	prompt_header(STRLEN);
 
 	printf("Your string is: \"%s\"\n",string_1);
@@ -47,6 +48,7 @@ int main()
 
 	/* Strcat() */
 
+	prompt_pause();
 	prompt_header(STRCAT);
 	prompt_user("Enter a second string");
 
@@ -84,6 +86,7 @@ int main()
 
 	/* Strchr() */
 
+	prompt_pause();
 	prompt_header(STRCHR);
 	prompt_user("Enter a character");
 
@@ -117,6 +120,7 @@ int main()
 
 	/* Strcmp() */
 
+	prompt_pause();
 	prompt_header(STRCMP);
 
 	if (strcmp(string_1,string_2) == 0)
@@ -141,12 +145,14 @@ int main()
 
 	/* Strcoll() */
 
+	prompt_pause();
 	prompt_header(STRCOLL);
 
 	// Add later
 
 	/* Strcpy() */
 
+	prompt_pause();
 	prompt_header(STRCPY);
 
 	printf("Attempt to make a copy of the first string in the third...");
@@ -165,6 +171,7 @@ int main()
 
 	/* Strcspn() */
 
+	prompt_pause();
 	prompt_header(STRCSPN);
 
 	printf("Attempt to concatenate the second string into the third...");
@@ -210,6 +217,7 @@ int main()
 
 	/* Strerror() */
 
+	prompt_pause();
 	prompt_header(STRERROR);
 
 	printf("Examples of what strerror() returns with custom errnum.\n");
@@ -221,7 +229,13 @@ int main()
 		printf("\t%4d -> %s\n",i,strerror(i));
 	}
 
+	/* Strncat() */
+
+	prompt_pause();
+	prompt_header(STRNCAT);
+
 	/* End of program */
 
+	prompt_goodbye();
 	return 0;
 }

@@ -83,3 +83,27 @@ void prompt_error(const char* prompt)
 {
 	printf("ERROR: %s.\n",prompt);
 }
+
+void prompt_pause()
+{
+	printf("\n");
+
+	int user_input;
+	while (1)
+	{
+		printf("Press <Enter> to continue... ");
+		user_input = getchar();
+
+		if (user_input == '\n')
+		{
+			break;
+		}
+
+		clear_buffer();
+	}
+}
+
+void prompt_goodbye()
+{
+	printf("\n%s\n","End of demonstration.");
+}

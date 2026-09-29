@@ -14,6 +14,7 @@ enum Header
 	,STRCPY
 	,STRCSPN
 	,STRERROR
+	,STRNCAT
 };
 
 extern char  string_1[STRING_SIZE];

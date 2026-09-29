@@ -18,6 +18,7 @@ const char* header_lines[] =
 	,"strcpy() - Copy the characters of a string into the memory of another string"
 	,"strcspn() - Return the length of a string up to the first occurrence of one of the specified characters"
 	,"strerror() - Return a string describing the meaning of an error code"
+	,"strncat() - Append N number of characters from a string to the end of another string"
 };
 
 char* error_lines[] =
