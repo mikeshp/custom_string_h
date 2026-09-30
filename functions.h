@@ -7,6 +7,7 @@
 
 #include "globals.h"
 
+void print_substring(const char*,const char*,size_t);
 void prompt_pause();
 void prompt_goodbye();
 void clear_string(char*);

@@ -91,6 +91,24 @@ int my_strcmp(const char* str1, const char* str2)
 	return dif;
 }
 
+int my_strncmp(const char* str1, const char* str2, size_t number)
+{
+	int ptr = 0;
+
+	while (ptr < (int) number)
+	{
+		if (str1[ptr] != str2[ptr]
+		||  str1[ptr] == '\0' || str2[ptr] == '\0')
+		{
+			return str1[ptr] - str2[ptr];
+		}
+
+		ptr++;
+	}
+
+	return 0;
+}
+
 char* my_strcpy(char* destin, const char* source)
 {
 	int ptr = 0;

@@ -262,6 +262,41 @@ int main()
 		return 1;
 	}
 
+	/* Strncmp() */
+
+	prompt_pause();
+	prompt_header(STRNCMP);
+
+	prompt_user("Enter a number of characters to compare");
+
+	if (scanf(" %lu",&input_number) != 1)
+	{
+		prompt_error("Wronng input");
+		clear_buffer();
+		return 1;
+	}
+	clear_buffer();
+
+	printf("Sequences to compare:\n");
+	print_substring("First",string_1,input_number);
+	print_substring("Second",string_2,input_number);
+
+	if (strncmp(string_1,string_2,input_number) > 0)
+	{
+		printf("String \"%s\" is higher than string \"%s\"\n",
+		string_1,string_2);
+	}
+	else if (strncmp(string_1,string_2,input_number) < 0)
+	{
+		printf("String \"%s\" is higher than string \"%s\"\n",
+		string_2,string_1);
+	}
+	else
+	{
+		printf("Strings \"%s\" and \"%s\" are equal in the first %d bytes.\n",
+		string_1,string_2,(int)input_number);
+	}
+
 	/* End of program */
 
 	prompt_goodbye();

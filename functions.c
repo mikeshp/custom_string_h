@@ -12,6 +12,21 @@
 	#include "my_string_names.h"
 #endif
 
+void print_substring(const char* prefix, const char* string, size_t number)
+{
+	if (number > strlen(string))
+	{
+		number = strlen(string);
+	}
+
+	printf("%s: \"",prefix);
+	for (int i = 0; i < (int) number; i++)
+	{
+		printf("%c",string[i]);
+	}
+	printf("\"\n");
+}
+
 void prompt_char_found(const char* str, const char chr, const char* arg)
 {
 	printf(
