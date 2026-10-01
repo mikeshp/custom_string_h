@@ -1,0 +1,40 @@
+The <string.h> header file in the C Standard Library provides predefined functions for manipulating null-terminated strings (byte strings) and memory blocks.
+Here is the complete categorized list of the standard predefined functions defined in <string.h> according to modern C specifications (including C11/C23 standards):
+1. String Manipulation (Copying & Concatenation)
+• strcpy(dest, src): Copies the source string to the destination.
+• strncpy(dest, src, n): Copies up to n characters from source to destination.
+• strcat(dest, src): Appends (concatenates) the source string to the end of the destination string.
+• strncat(dest, src, n): Appends up to n characters from source to destination.
+• strdup(str): Duplicates a string by allocating memory dynamically (Standardized in C23 / POSIX).
+• strndup(str, n): Duplicates a string up to n characters with dynamic memory allocation (Standardized in C23).
+2. String Examination & Search
+• strlen(str): Returns the total length of the string (excluding the null terminator \0).
+• strchr(str, ch): Finds the first occurrence of character ch in a string.
+• strrchr(str, ch): Finds the last occurrence of character ch in a string.
+• strstr(haystack, needle): Finds the first occurrence of a substring (needle) inside another string (haystack).
+• strpbrk(str, accept): Finds the first character in str that matches any character specified in accept.
+• strspn(str, accept): Returns the length of the initial segment of str containing only characters from accept.
+• strcspn(str, reject): Returns the length of the initial segment of str containing none of the characters from reject.
+• strtok(str, delim): Tokenizes (splits) a string into smaller pieces based on a set of delimiters.
+3. String Comparison & Transformation
+• strcmp(str1, str2): Compares two strings lexicographically (returns 0 if equal).
+• strncmp(str1, str2, n): Compares up to n characters of two strings.
+• strcoll(str1, str2): Compares two strings using the current locale's collating order.
+• strxfrm(dest, src, n): Transforms a string using locale-specific settings so it can be compared using strcmp.
+4. Raw Memory Block Manipulation
+Because C strings are arrays of bytes, <string.h> also handles raw binary data buffers that are not necessarily null-terminated:
+• memcpy(dest, src, n): Copies n bytes from a source memory area to a destination area (buffers must not overlap).
+• memmove(dest, src, n): Copies n bytes from source to destination safely even if the memory blocks overlap.
+• memcmp(ptr1, ptr2, n): Compares the first n bytes of two memory blocks.
+• memchr(ptr, ch, n): Locates the first occurrence of the byte ch within the first n bytes of a memory block.
+• memset(ptr, value, n): Fills the first n bytes of a memory block with a specified byte value.
+• memset_explicit(ptr, value, n): Similar to memset, but guaranteed not to be optimized out by the compiler (Introduced in C23 for security sensitive data clearance).
+• memccpy(dest, src, ch, n): Copies bytes until character ch is found or n bytes are written (POSIX / Standardized in C23).
+5. Miscellaneous
+• strerror(errnum): Maps an error number (like errno) to a human-readable error message string.
+6. Bounds-Checking Secure Variants (C11 Annex K)
+If bounds-checking extensions (__STDC_LIB_EXT1__) are supported by your C compiler, the header also includes safer alternative variants designed to prevent buffer overflows:
+• String: strcpy_s, strncpy_s, strcat_s, strncat_s, strtok_s, strerror_s, strerrorlen_s.
+• Memory: memcpy_s, memmove_s.
+(Note: Functions like strrev (reverse), strlwr (lowercase), and strupr (uppercase) are frequently included in older Windows compiler headers like <string.h> or <conio.h>, but they are non-standard extensions and not part of official ISO C)
+# AI generated
