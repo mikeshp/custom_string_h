@@ -21,13 +21,19 @@ int main()
 {
 	char  user_select[INPUT_SIZE];
 	const int punks_not_dead = 1;
+	const int options_list   = 12;
+
+	prompt_hello();
+	switch_display_alternative();
 
 	/* Main Menu */
 
 	while (punks_not_dead)
 	{
 		clear_screen();
-		// display menu options
+		prompt_header(HEADER);
+		display_menu_options(options_list);
+
 		prompt_user("Enter 1-10 or Q");
 		user_input(user_select);
 
@@ -40,9 +46,11 @@ int main()
 		{
 			case 1:
 				printf("1\n");
+				prompt_pause();
 				break;
 			case 2:
 				printf("2\n");
+				prompt_pause();
 				break;
 			default:
 				break;
@@ -365,6 +373,7 @@ int main()
 
 	/* End of program */
 
+	switch_display_back();
 	prompt_goodbye();
 	return 0;
 }

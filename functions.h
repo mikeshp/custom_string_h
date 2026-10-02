@@ -10,7 +10,12 @@
 void print_substring(const char*,const char*,size_t);
 void prompt_pause();
 void prompt_goodbye();
+void prompt_hello();
+void display_menu_options(const int);
 void clear_string(char*);
+void clear_screen();
+void switch_display_back();
+void switch_display_alternative();
 void user_input(char*);
 void clear_buffer();
 int  can_concatenate(const char*,const char*);

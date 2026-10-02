@@ -73,7 +73,19 @@ void clear_buffer()
 
 void clear_screen()
 {
-	printf("\e[2j\e[H");
+	printf("\e[2J\e[1;1H");
+	fflush(stdout);
+}
+
+void switch_display_back()
+{
+	printf("\e[?1049l");
+	fflush(stdout);
+}
+
+void switch_display_alternative()
+{
+	printf("\e[?1049h");
 	fflush(stdout);
 }
 
@@ -117,6 +129,7 @@ void user_input(char* input_string)
 
 void prompt_user(const char* prompt)
 {
+	printf("\e[999;1H");
 	printf("%s:\n",prompt);
 	printf("> ");
 }
@@ -148,4 +161,21 @@ void prompt_pause()
 void prompt_goodbye()
 {
 	printf("\n%s\n","End of demonstration.");
+}
+
+void prompt_hello()
+{
+	printf("%s\n","Begin the demonstration.");
+}
+
+void display_menu_options(const int options_list)
+{
+	printf("Choose a function to demonstrate:\n\n");
+
+	for (int i = 1; i <= options_list; i++)
+	{
+		printf("\t%2d: %s\n",i,header_lines[i]);
+	}
+
+	printf("\n\t%2c: Exit program\n",'Q');
 }
