@@ -3,6 +3,9 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+
+#include "functions.h"
 #include "globals.h"
 
 #ifndef CUSTOM_LIB
@@ -86,6 +89,24 @@ int can_concatenate(const char* destin, const char* source)
 	}
 
 	return 1;
+}
+
+void user_input(char* input_string)
+{
+	if (fgets(input_string,INPUT_SIZE,stdin) == NULL)
+	{
+		prompt_error("Wrong input");
+		exit(1);
+	}
+
+	if (input_string[strlen(input_string)-1] == '\n')
+	{
+		clear_string(input_string);
+	}
+	else
+	{
+		clear_buffer();
+	}
 }
 
 void prompt_user(const char* prompt)

@@ -11,6 +11,7 @@ void print_substring(const char*,const char*,size_t);
 void prompt_pause();
 void prompt_goodbye();
 void clear_string(char*);
+void user_input(char*);
 void clear_buffer();
 int  can_concatenate(const char*,const char*);
 int  can_copy(const char*,const char*);

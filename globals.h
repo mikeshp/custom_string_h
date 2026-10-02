@@ -2,6 +2,7 @@
 #define GLOBALS_H
 
 #define STRING_SIZE 512
+#define  INPUT_SIZE 4
 
 enum Header
 {
