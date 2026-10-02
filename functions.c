@@ -71,6 +71,12 @@ void clear_buffer()
 	while ((clear = getchar()) != '\n' && clear != EOF);
 }
 
+void clear_screen()
+{
+	printf("\e[2j\e[H");
+	fflush(stdout);
+}
+
 int can_copy(const char* destin, const char* source)
 {
 	if (strlen(destin) < strlen(source) + 1)

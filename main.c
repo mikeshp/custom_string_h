@@ -5,6 +5,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "globals.h"
 #include "functions.h"
@@ -25,21 +26,27 @@ int main()
 
 	while (punks_not_dead)
 	{
-		// clear screen
+		clear_screen();
 		// display menu options
 		prompt_user("Enter 1-10 or Q");
 		user_input(user_select);
 
 		if (user_select[0] == 'Q' || user_select[0] == 'q')
 		{
-			printf("DEBUG: this is the end\n");
 			break;
 		}
 
-		printf("Your selection: %s\n",user_select);
-		printf("DEBUG: strlen = %zu\n",strlen(user_select));
-		printf("DEBUG: [0] = %c\n",user_select[0]);
-		printf("DEBUG: last char = %c\n",user_select[strlen(user_select)-1]);
+		switch(atoi(user_select))
+		{
+			case 1:
+				printf("1\n");
+				break;
+			case 2:
+				printf("2\n");
+				break;
+			default:
+				break;
+		}
 	}
 
 	/* Prompt user for the strings */
