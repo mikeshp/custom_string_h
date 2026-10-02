@@ -9,6 +9,7 @@
 
 #include "globals.h"
 #include "functions.h"
+#include "demo_function.h"
 
 #ifndef CUSTOM_LIB
 	#include <string.h>
@@ -21,7 +22,7 @@ int main()
 {
 	char  user_select[INPUT_SIZE];
 	const int punks_not_dead = 1;
-	const int options_list   = 12;
+//	const int options_list   = 11;
 
 	prompt_hello();
 	switch_display_alternative();
@@ -32,7 +33,7 @@ int main()
 	{
 		clear_screen();
 		prompt_header(HEADER);
-		display_menu_options(options_list);
+		display_menu_options(NUMBER-1);
 
 		prompt_user("Enter 1-10 or Q");
 		user_input(user_select);
@@ -44,12 +45,8 @@ int main()
 
 		switch(atoi(user_select))
 		{
-			case 1:
-				printf("1\n");
-				prompt_pause();
-				break;
-			case 2:
-				printf("2\n");
+			case 1 ... NUMBER-1:
+				demo_function(atoi(user_select));
 				prompt_pause();
 				break;
 			default:

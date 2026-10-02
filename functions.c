@@ -168,11 +168,11 @@ void prompt_hello()
 	printf("%s\n","Begin the demonstration.");
 }
 
-void display_menu_options(const int options_list)
+void display_menu_options(const int number)
 {
 	printf("Choose a function to demonstrate:\n\n");
 
-	for (int i = 1; i <= options_list; i++)
+	for (int i = 1; i <= number; i++)
 	{
 		printf("\t%2d: %s\n",i,header_lines[i]);
 	}

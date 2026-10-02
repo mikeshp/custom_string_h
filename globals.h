@@ -1,8 +1,8 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
-#define STRING_SIZE 512
-#define  INPUT_SIZE 4
+#define STRING_SIZE  512
+#define INPUT_SIZE   4
 
 enum Header
 {
@@ -18,6 +18,7 @@ enum Header
 	,STRNCAT
 	,STRNCMP
 	,STRPBRK
+	,NUMBER
 };
 
 extern char  string_1[STRING_SIZE];
