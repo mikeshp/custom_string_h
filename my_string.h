@@ -15,5 +15,6 @@ char*  my_strcpy(char*, const char*);
 size_t my_strcspn(const char*,const char*);
 char*  my_strerror(int);
 char*  my_strncat(char*,const char*,size_t);
+char*  my_strpbrk(const char*,const char*);
 
 #endif

@@ -20,6 +20,7 @@ const char* header_lines[] =
 	,"strerror() - Return a string describing the meaning of an error code"
 	,"strncat() - Append N number of characters from a string to the end of another string"
 	,"strncmp() - Compare the number of characters in two strings to determine which string has a higher value"
+	,"strpbrk() - Return a pointer to the first occurance of one of the specified characters"
 };
 
 char* error_lines[] =

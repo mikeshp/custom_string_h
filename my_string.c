@@ -9,6 +9,31 @@
 #include "my_string.h"
 #include "my_string_names.h"
 
+char* my_strpbrk(const char* string, const char* chars)
+{
+	int ptr_s;
+	int ptr_c;
+
+	ptr_s = 0;
+	while (string[ptr_s] != '\0')
+	{
+		ptr_c = 0;
+		while (chars[ptr_c] != '\0')
+		{
+			if (string[ptr_s] == chars[ptr_c])
+			{
+				return (char*) &string[ptr_s];
+			}
+
+			ptr_c++;
+		}
+
+		ptr_s++;
+	}
+
+	return NULL;
+}
+
 size_t my_strlen(const char* string)
 {
 	int count = 0;

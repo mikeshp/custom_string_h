@@ -297,6 +297,42 @@ int main()
 		string_1,string_2,(int)input_number);
 	}
 
+	/* Strpbrk() */
+
+	prompt_pause();
+	prompt_header(STRPBRK);
+
+	// Prepare a concatenated string for demonstration
+	strcpy(string_3,string_1);
+	strcat(string_3,string_2);
+
+	printf("Your concatenated string is \"%s\"\n",string_3);
+	prompt_user("Enter a sequence of characters to be found in the string");
+
+	if (fgets(string_4,sizeof(string_4),stdin) == NULL)
+	{
+		prompt_error("Wrong input");
+		return 1;
+	}
+
+	if (string_4[strlen(string_4) - 1] == '\n')
+	{
+		clear_string(string_4);
+	}
+	else
+	{
+		clear_buffer();
+	}
+
+	if (strpbrk(string_3,string_4) == NULL)
+	{
+		printf("None of the characters were found in the string.\n");
+	}
+	else
+	{
+		prompt_char_found(string_3,strpbrk(string_3,string_4)[0],"concatenated");
+	}
+
 	/* End of program */
 
 	prompt_goodbye();
