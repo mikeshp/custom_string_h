@@ -29,7 +29,9 @@ void (*demo_select[DEMO_COUNT])(void) =
 
 void demo_function(int user_select)
 {
+	clear_screen();
 	demo_select[user_select]();
+	prompt_pause();
 }
 
 void demos()
@@ -40,8 +42,6 @@ void demos()
 void demo_strlen()
 {
 	/* Strlen() */
-
-	clear_screen();
 	prompt_header(STRLEN);
 
 	move_cursor_bottom();
@@ -76,14 +76,11 @@ void demo_strlen()
 	}
 
 	redraw_header(STRLEN);
-	prompt_pause();
 }
 
 void demo_strcat()
 {
 	/* Strcat() */
-
-	clear_screen();
 	prompt_header(STRCAT);
 
 	move_cursor_bottom();
@@ -112,14 +109,11 @@ void demo_strcat()
 	}
 
 	redraw_header(STRCAT);
-	prompt_pause();
 }
 
 void demo_strchr()
 {
 	/* Strchr() */
-
-	clear_screen();
 	prompt_header(STRCHR);
 
 	move_cursor_bottom();
@@ -169,14 +163,11 @@ void demo_strchr()
 	}
 
 	redraw_header(STRCHR);
-	prompt_pause();
 }
 
 void demo_strcmp()
 {
 	/* Strcmp() */
-
-	clear_screen();
 	prompt_header(STRCMP);
 
 	move_cursor_bottom();
@@ -212,19 +203,16 @@ void demo_strcmp()
 	}
 
 	redraw_header(STRCMP);
-	prompt_pause();
 }
 
 void demo_strcoll()
 {
 	/* Strcoll() */
-
-	clear_screen();
 	prompt_header(STRCOLL);
 
 	// Add later
 	move_cursor_bottom();
-	printf("Come tomorrow.\n");
+	printf("Come back tomorrow.\n");
 
 	redraw_header(STRCOLL);
 	prompt_pause();
@@ -233,8 +221,6 @@ void demo_strcoll()
 void demo_strcpy()
 {
 	/* Strcpy() */
-
-	clear_screen();
 	prompt_header(STRCPY);
 
 	move_cursor_bottom();
@@ -258,14 +244,11 @@ void demo_strcpy()
 	}
 
 	redraw_header(STRCPY);
-	prompt_pause();
 }
 
 void demo_strcspn()
 {
 	/* Strcspn() */
-
-	clear_screen();
 	prompt_header(STRCSPN);
 
 	move_cursor_bottom();
@@ -293,14 +276,11 @@ void demo_strcspn()
 	}
 
 	redraw_header(STRCSPN);
-	prompt_pause();
 }
 
 void demo_strerror()
 {
 	/* Strerror() */
-
-	clear_screen();
 	prompt_header(STRERROR);
 
 	move_cursor_bottom();
@@ -314,14 +294,11 @@ void demo_strerror()
 	}
 
 	redraw_header(STRERROR);
-	prompt_pause();
 }
 
 void demo_strncat()
 {
 	/* Strncat() */
-
-	clear_screen();
 	prompt_header(STRNCAT);
 
 	move_cursor_bottom();
@@ -365,15 +342,88 @@ void demo_strncat()
 	}
 
 	redraw_header(STRNCAT);
-	prompt_pause();
 }
 
 void demo_strncmp()
 {
+	/* Strncmp() */
 	prompt_header(STRNCMP);
+
+	move_cursor_bottom();
+	prompt_user("Enter a string");
+	user_input(string_1,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRNCMP);
+
+	prompt_user("Enter a second string");
+	user_input(string_2,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRNCMP);
+
+	prompt_user("Enter a number of characters to compare");
+
+	long unsigned int input_number;
+	if (scanf(" %lu",&input_number) != 1)
+	{
+		clear_buffer();
+		prompt_error("Wronng input");
+	}
+
+	clear_buffer();
+
+	redraw_header(STRNCMP);
+
+	printf("Sequences to compare:\n");
+	print_substring("First",string_1,input_number);
+	print_substring("Second",string_2,input_number);
+
+	if (strncmp(string_1,string_2,input_number) > 0)
+	{
+		printf("String \"%s\" is higher than string \"%s\"\n",
+		string_1,string_2);
+	}
+	else if (strncmp(string_1,string_2,input_number) < 0)
+	{
+		printf("String \"%s\" is higher than string \"%s\"\n",
+		string_2,string_1);
+	}
+	else
+	{
+		printf("Strings \"%s\" and \"%s\" are equal in the first %d bytes.\n",
+		string_1,string_2,(int)input_number);
+	}
+
+	redraw_header(STRNCMP);
 }
 
 void demo_strpbrk()
 {
+	/* Strpbrk() */
 	prompt_header(STRPBRK);
+
+	move_cursor_bottom();
+	prompt_user("Enter a string");
+	user_input(string_1,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRPBRK);
+
+	prompt_user("Enter a sequence of characters to be found in the string");
+	user_input(string_2,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRPBRK);
+
+	if (strpbrk(string_1,string_2) == NULL)
+	{
+		printf("None of the characters were found in the string.\n");
+	}
+	else
+	{
+		prompt_char_found(string_1,strpbrk(string_1,string_2)[0],"given");
+	}
+
+	redraw_header(STRPBRK);
 }
