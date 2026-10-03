@@ -10,7 +10,7 @@
 
 #include "globals.h"
 #include "functions.h"
-#include "demo_function.h"
+#include "demo_functions.h"
 
 #ifndef CUSTOM_LIB
 	#include <string.h>
@@ -39,7 +39,7 @@ int main(void)
 		prompt_header(HEADER);
 		// the enum shifted due to top HEADER
 		// hence NUMBER - 1 to count functions
-		display_menu_options(NUMBER-1);
+		display_menu_options(DEMO_COUNT-1);
 
 		prompt_user("Enter your selection");
 		user_input(user_select);
@@ -51,7 +51,7 @@ int main(void)
 
 		switch(atoi(user_select))
 		{
-			case 1 ... NUMBER-1:
+			case 1 ... DEMO_COUNT-1:
 				demo_function(atoi(user_select));
 				prompt_pause();
 				break;

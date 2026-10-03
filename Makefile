@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Wconversion -Werror -Wstrict-prototypes
-COMMON = main.c globals.c functions.c demo_function.c
+COMMON = main.c globals.c functions.c demo_functions.c
 CUSTOM = my_string.c my_string_names.h
 
 .PHONY: all
