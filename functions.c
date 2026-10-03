@@ -65,25 +65,25 @@ void clear_string(char* string)
 	}
 }
 
-void clear_buffer()
+void clear_buffer(void)
 {
 	int clear;
 	while ((clear = getchar()) != '\n' && clear != EOF);
 }
 
-void clear_screen()
+void clear_screen(void)
 {
 	printf("\e[2J\e[1;1H");
 	fflush(stdout);
 }
 
-void switch_display_back()
+void switch_display_back(void)
 {
 	printf("\e[?1049l");
 	fflush(stdout);
 }
 
-void switch_display_alternative()
+void switch_display_alternative(void)
 {
 	printf("\e[?1049h");
 	fflush(stdout);
@@ -139,7 +139,7 @@ void prompt_error(const char* prompt)
 	printf("ERROR: %s.\n",prompt);
 }
 
-void prompt_pause()
+void prompt_pause(void)
 {
 	printf("\n");
 
@@ -158,12 +158,12 @@ void prompt_pause()
 	}
 }
 
-void prompt_goodbye()
+void prompt_goodbye(void)
 {
 	printf("\n%s\n","End of demonstration.");
 }
 
-void prompt_hello()
+void prompt_hello(void)
 {
 	printf("%s\n","Begin the demonstration.");
 }

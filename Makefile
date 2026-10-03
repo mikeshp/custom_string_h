@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Wconversion -Werror
+CFLAGS = -Wall -Wextra -Wconversion -Werror -Wstrict-prototypes
 COMMON = main.c globals.c functions.c demo_function.c
 CUSTOM = my_string.c my_string_names.h
 

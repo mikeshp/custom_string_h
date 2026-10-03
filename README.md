@@ -20,3 +20,5 @@ This is a study project.
 ## Notes:
 * The names of standard functions are reserved in **GCC**, so it will throw an error if you try to name your custom function same way, no matter if the corresponding header is included or not.
 * There is **Section 3 of manpages** that is dedicated to the standard C functions, so with a command like `man 3 strlen` you get a synopsis of such a function.
+* Dangerous usage of two enum counters, if DEMO_COUNT and NUMBER mismatch, it will cause segmentation fault.
+* Require refactoring to put all enums, counters and function pointers in order.

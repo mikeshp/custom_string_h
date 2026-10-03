@@ -19,7 +19,7 @@
 	#include "my_string_names.h"
 #endif
 
-int main()
+int main(void)
 {
 	// handle cntrl-c interrupt
 	signal(SIGINT,sigint_exit);
