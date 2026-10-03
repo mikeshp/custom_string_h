@@ -98,7 +98,7 @@ void switch_display_alternative(void)
 
 int can_copy(const char* destin, const char* source)
 {
-	if (strlen(destin) < strlen(source) + 1)
+	if (sizeof(destin) < strlen(source) + 1)
 	{
 		return 0;
 	}
@@ -154,8 +154,8 @@ void prompt_user(const char* prompt)
 
 void prompt_error(const char* prompt)
 {
+	switch_display_back();
 	printf("ERROR: %s.\n",prompt);
-	prompt_pause();
 	exit(1);
 }
 

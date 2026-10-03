@@ -11,7 +11,7 @@
 	#include "my_string_names.h"
 #endif
 
-void (*demo_function_select[DEMO_COUNT])(void) =
+void (*demo_select[DEMO_COUNT])(void) =
 {
 	 demos
 	,demo_strlen
@@ -29,9 +29,7 @@ void (*demo_function_select[DEMO_COUNT])(void) =
 
 void demo_function(int user_select)
 {
-	clear_screen();
-	demo_function_select[user_select]();
-	prompt_pause();
+	demo_select[user_select]();
 }
 
 void demos()
@@ -42,6 +40,7 @@ void demos()
 void demo_strlen()
 {
 	/* Strlen() */
+	clear_screen();
 	prompt_header(STRLEN);
 
 	move_cursor_bottom();
@@ -76,11 +75,13 @@ void demo_strlen()
 	}
 
 	redraw_header(STRLEN);
+	prompt_pause();
 }
 
 void demo_strcat()
 {
 	/* Strcat() */
+	clear_screen();
 	prompt_header(STRCAT);
 
 	move_cursor_bottom();
@@ -109,11 +110,13 @@ void demo_strcat()
 	}
 
 	redraw_header(STRCAT);
+	prompt_pause();
 }
 
 void demo_strchr()
 {
 	/* Strchr() */
+	clear_screen();
 	prompt_header(STRCHR);
 
 	move_cursor_bottom();
@@ -163,11 +166,13 @@ void demo_strchr()
 	}
 
 	redraw_header(STRCHR);
+	prompt_pause();
 }
 
 void demo_strcmp()
 {
 	/* Strcmp() */
+	clear_screen();
 	prompt_header(STRCMP);
 
 	move_cursor_bottom();
@@ -203,21 +208,85 @@ void demo_strcmp()
 	}
 
 	redraw_header(STRCMP);
+	prompt_pause();
 }
 
 void demo_strcoll()
 {
+	/* Strcoll() */
+	clear_screen();
 	prompt_header(STRCOLL);
+
+	// Add later
+	move_cursor_bottom();
+	printf("Come tomorrow.\n");
+
+	redraw_header(STRCOLL);
+	prompt_pause();
 }
 
 void demo_strcpy()
 {
+	/* Strcpy() */
+	clear_screen();
 	prompt_header(STRCPY);
+
+	move_cursor_bottom();
+	prompt_user("Enter a string");
+	user_input(string_1,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRCPY);
+
+	printf("Attempt to make a copy of the first string in the second...");
+
+	if (can_copy(string_2,string_1))
+	{
+		printf("Success!\n");
+		printf("Second string (copied from the first): \"%s\"\n",
+		strcpy(string_2,string_1));
+	}
+	else
+	{
+		prompt_error("Buffer too low");
+	}
+
+	redraw_header(STRCPY);
+	prompt_pause();
 }
 
 void demo_strcspn()
 {
+	/* Strcspn() */
+	clear_screen();
 	prompt_header(STRCSPN);
+
+	move_cursor_bottom();
+	prompt_user("Enter a string");
+	user_input(string_3,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRCSPN);
+
+	move_cursor_bottom();
+	prompt_user("Enter a sequence of characters to find in the string");
+	user_input(string_4,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRCSPN);
+
+	if (strcspn(string_3,string_4) == strlen(string_3))
+	{
+		printf("None of the characters were found in the string!\n");
+	}
+	else
+	{
+		printf("Length before the character \"%c\" is found is: %zu.\n",
+		string_3[strcspn(string_3,string_4)],strcspn(string_3,string_4));
+	}
+
+	redraw_header(STRCSPN);
+	prompt_pause();
 }
 
 void demo_strerror()

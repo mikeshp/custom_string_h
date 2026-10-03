@@ -62,77 +62,8 @@ int main(void)
 
 
 
-	/* Strcoll() */
 
-//	prompt_pause();
-//	prompt_header(STRCOLL);
 
-	// Add later
-
-	/* Strcpy() */
-
-//	prompt_pause();
-//	prompt_header(STRCPY);
-//
-//	printf("Attempt to make a copy of the first string in the third...");
-//
-//	if (can_copy(string_3,string_1))
-//	{
-//		printf("Success!\n");
-//		printf("Third string (copied from the first): \"%s\"\n",
-//		strcpy(string_3,string_1));
-//	}
-//	else
-//	{
-//		prompt_error("Buffer too low");
-//		return 1;
-//	}
-
-	/* Strcspn() */
-
-//	prompt_pause();
-//	prompt_header(STRCSPN);
-//
-//	printf("Attempt to concatenate the second string into the third...");
-//
-//	if (can_concatenate(string_3,string_2))
-//	{
-//		printf("Success!\n");
-//		printf("The concatenated string is now: \"%s\"\n",
-//		strcat(string_3,string_2));
-//	}
-//	else
-//	{
-//		prompt_error("Buffer too low");
-//		return 1;
-//	}
-//
-//	prompt_user("Enter a sequence of characters to find in the string");
-//
-//	if (fgets(string_4,sizeof(string_4),stdin) == NULL)
-//	{
-//		prompt_error("Wrong input");
-//		return 1;
-//	}
-//
-//	if (string_4[strlen(string_4) - 1] == '\n')
-//	{
-//		clear_string(string_4);
-//	}
-//	else
-//	{
-//		clear_buffer();
-//	}
-//
-//	if (strcspn(string_3,string_4) == strlen(string_3))
-//	{
-//		printf("None of the characters were found in the string!\n");
-//	}
-//	else
-//	{
-//		printf("Length before the character \"%c\" is found is: %zu.\n",
-//		string_3[strcspn(string_3,string_4)],strcspn(string_3,string_4));
-//	}
 
 	/* Strerror() */
 
