@@ -41,8 +41,9 @@ int main(void)
 		// hence NUMBER - 1 to count functions
 		display_menu_options(DEMO_COUNT-1);
 
+		move_cursor_bottom();
 		prompt_user("Enter your selection");
-		user_input(user_select);
+		user_input(user_select,INPUT_SIZE);
 
 		if (user_select[0] == 'Q' || user_select[0] == 'q')
 		{
@@ -53,136 +54,13 @@ int main(void)
 		{
 			case 1 ... DEMO_COUNT-1:
 				demo_function(atoi(user_select));
-				prompt_pause();
 				break;
 			default:
 				break;
 		}
 	}
 
-	/* Prompt user for the strings */
-//
-//	prompt_header(HEADER);
-//	prompt_user("Enter a string");
-//
-//	if (fgets(string_1,sizeof(string_1),stdin) == NULL)
-//	{
-//		prompt_error("Wrong input");
-//		return 1;
-//	}
-//
-//	if (string_1[strlen(string_1) - 1] == '\n')
-//	{
-//		clear_string(string_1);
-//	}
-//	else
-//	{
-//		clear_buffer();
-//	}
 
-	/* Strlen() */
-
-//	prompt_header(STRLEN);
-//
-//	printf("Your string is: \"%s\"\n",string_1);
-//	printf("Its length is %zu characters.\n",strlen(string_1));
-
-	/* Strcat() */
-
-//	prompt_pause();
-//	prompt_header(STRCAT);
-//	prompt_user("Enter a second string");
-//
-//	if (fgets(string_2,sizeof(string_2),stdin) == NULL)
-//	{
-//		prompt_error("Wrong input");
-//		return 1;
-//	}
-//
-//	if (string_2[strlen(string_2) - 1] == '\n')
-//	{
-//		clear_string(string_2);
-//	}
-//	else
-//	{
-//		clear_buffer();
-//	}
-//
-//	if (can_concatenate(string_1,string_2))
-//	{
-//		// keep string_1 intact after demonstration
-//		strcpy(string_3,string_1);
-//
-//		printf("Two strings together: \"%s\"\n",
-//		strcat(string_3,string_2));
-//
-//		printf("Concatenated string's length is %zu.\n",
-//		strlen(string_3));
-//	}
-//	else
-//	{
-//		prompt_error("Buffer too low");
-//		return 1;
-//	}
-
-	/* Strchr() */
-
-//	prompt_pause();
-//	prompt_header(STRCHR);
-//	prompt_user("Enter a character");
-//
-//	if (scanf("%c",&input_char) != 1)
-//	{
-//		prompt_error("Wrong input");
-//		return 1;
-//	}
-//	else
-//	{
-//		clear_buffer();
-//	}
-//
-//	if (strchr(string_1,input_char) == NULL
-//	&&  strchr(string_2,input_char) == NULL)
-//	{
-//		printf("The character was not found in your strings.\n");
-//	}
-//	else
-//	{
-//		if (strchr(string_1,input_char) != NULL)
-//		{
-//			prompt_char_found(string_1,input_char,"first");
-//		}
-//
-//		if (strchr(string_2,input_char) != NULL)
-//		{
-//			prompt_char_found(string_2,input_char,"second");
-//		}
-//	}
-
-	/* Strcmp() */
-
-//	prompt_pause();
-//	prompt_header(STRCMP);
-//
-//	if (strcmp(string_1,string_2) == 0)
-//	{
-//		printf("Both strings are alphabetically equal.\n");
-//	}
-//	else if (strcmp(string_1,string_2) > 0)
-//	{
-//		printf("First string is greater than the second.\n");
-//		prompt_strings_in_order(string_1,string_2);
-//	}
-//	else if (strcmp(string_1,string_2) < 0)
-//	{
-//		printf("Second string is greater than the first.\n");
-//		prompt_strings_in_order(string_1,string_2);
-//	}
-//	else
-//	{
-//		prompt_error("Wrong comparison");
-//		return 1;
-//	}
 
 	/* Strcoll() */
 

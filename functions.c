@@ -45,9 +45,16 @@ void prompt_strings_in_order(const char* str1, const char* str2)
 	strcmp(str1,str2) > 0 ? str1 : str2);
 }
 
-void prompt_header(enum Header header)
+void prompt_header(const int header)
 {
-	printf("\n# %s\n\n",header_lines[header]);
+	printf("\n* %s\n\n",header_lines[header]);
+}
+
+void redraw_header(const int header)
+{
+	move_cursor_top();
+	prompt_header(header);
+	move_cursor_bottom();
 }
 
 void clear_string(char* string)
@@ -109,12 +116,11 @@ int can_concatenate(const char* destin, const char* source)
 	return 1;
 }
 
-void user_input(char* input_string)
+void user_input(char* input_string, const int string_size)
 {
-	if (fgets(input_string,INPUT_SIZE,stdin) == NULL)
+	if (fgets(input_string,string_size,stdin) == NULL)
 	{
 		prompt_error("Wrong input");
-		exit(1);
 	}
 
 	if (input_string[strlen(input_string)-1] == '\n')
@@ -127,9 +133,21 @@ void user_input(char* input_string)
 	}
 }
 
-void prompt_user(const char* prompt)
+void move_cursor_bottom()
 {
 	printf("\e[999;1H");
+	fflush(stdout);
+}
+
+void move_cursor_top()
+{
+	printf("\e[1;1H");
+	fflush(stdout);
+}
+
+void prompt_user(const char* prompt)
+{
+	move_cursor_bottom();
 	printf("%s:\n",prompt);
 	printf("> ");
 }
@@ -137,6 +155,8 @@ void prompt_user(const char* prompt)
 void prompt_error(const char* prompt)
 {
 	printf("ERROR: %s.\n",prompt);
+	prompt_pause();
+	exit(1);
 }
 
 void prompt_pause(void)
