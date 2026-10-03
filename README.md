@@ -22,3 +22,4 @@ This is a study project.
 * There is **Section 3 of manpages** that is dedicated to the standard C functions, so with a command like `man 3 strlen` you get a synopsis of such a function.
 * Dangerous usage of two enum counters, if DEMO_COUNT and NUMBER mismatch, it will cause segmentation fault.
 * Require refactoring to put all enums, counters and function pointers in order.
+* Screen and cursor position control is bulky and weak, the dedicated functions have side effects, which makes the demo functions bloated and hard to track.

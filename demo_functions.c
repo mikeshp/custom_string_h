@@ -40,6 +40,7 @@ void demos()
 void demo_strlen()
 {
 	/* Strlen() */
+
 	clear_screen();
 	prompt_header(STRLEN);
 
@@ -81,6 +82,7 @@ void demo_strlen()
 void demo_strcat()
 {
 	/* Strcat() */
+
 	clear_screen();
 	prompt_header(STRCAT);
 
@@ -116,6 +118,7 @@ void demo_strcat()
 void demo_strchr()
 {
 	/* Strchr() */
+
 	clear_screen();
 	prompt_header(STRCHR);
 
@@ -172,6 +175,7 @@ void demo_strchr()
 void demo_strcmp()
 {
 	/* Strcmp() */
+
 	clear_screen();
 	prompt_header(STRCMP);
 
@@ -214,6 +218,7 @@ void demo_strcmp()
 void demo_strcoll()
 {
 	/* Strcoll() */
+
 	clear_screen();
 	prompt_header(STRCOLL);
 
@@ -228,6 +233,7 @@ void demo_strcoll()
 void demo_strcpy()
 {
 	/* Strcpy() */
+
 	clear_screen();
 	prompt_header(STRCPY);
 
@@ -258,31 +264,32 @@ void demo_strcpy()
 void demo_strcspn()
 {
 	/* Strcspn() */
+
 	clear_screen();
 	prompt_header(STRCSPN);
 
 	move_cursor_bottom();
 	prompt_user("Enter a string");
-	user_input(string_3,STRING_SIZE);
+	user_input(string_1,STRING_SIZE);
 	printf("\n");
 
 	redraw_header(STRCSPN);
 
 	move_cursor_bottom();
 	prompt_user("Enter a sequence of characters to find in the string");
-	user_input(string_4,STRING_SIZE);
+	user_input(string_2,STRING_SIZE);
 	printf("\n");
 
 	redraw_header(STRCSPN);
 
-	if (strcspn(string_3,string_4) == strlen(string_3))
+	if (strcspn(string_1,string_2) == strlen(string_1))
 	{
 		printf("None of the characters were found in the string!\n");
 	}
 	else
 	{
 		printf("Length before the character \"%c\" is found is: %zu.\n",
-		string_3[strcspn(string_3,string_4)],strcspn(string_3,string_4));
+		string_1[strcspn(string_1,string_2)],strcspn(string_1,string_2));
 	}
 
 	redraw_header(STRCSPN);
@@ -291,12 +298,74 @@ void demo_strcspn()
 
 void demo_strerror()
 {
+	/* Strerror() */
+
+	clear_screen();
 	prompt_header(STRERROR);
+
+	move_cursor_bottom();
+	printf("Examples of what strerror() returns with custom errnum.\n");
+	printf("Locale will be ignored since it's beyond the scope of this project.\n");
+	printf("Any indice beyond 0 - %d range will be interpreted as \"unknown\":\n",error_limit);
+
+	for (int i = -2; i <= (error_limit + 2); i++)
+	{
+		printf("\t%4d -> %s\n",i,strerror(i));
+	}
+
+	redraw_header(STRERROR);
+	prompt_pause();
 }
 
 void demo_strncat()
 {
+	/* Strncat() */
+
+	clear_screen();
 	prompt_header(STRNCAT);
+
+	move_cursor_bottom();
+	prompt_user("Enter a string");
+	user_input(string_1,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRNCAT);
+
+	prompt_user("Enter a second string");
+	user_input(string_2,STRING_SIZE);
+	printf("\n");
+
+	redraw_header(STRNCAT);
+
+	printf("First string is: \"%s\"\n",string_1);
+	printf("Second string is: \"%s\"\n",string_2);
+
+	redraw_header(STRNCAT);
+
+	prompt_user("Enter a number of characters from the second string");
+
+	long unsigned int input_number;
+	if (scanf(" %lu",&input_number) != 1
+	||  input_number > strlen(string_2))
+	{
+		clear_buffer();
+		prompt_error("Wrong input");
+	}
+
+	clear_buffer();
+
+	if (can_concatenate(string_1,string_2))
+	{
+		printf("Result in the first string: \"%s\"\n",
+		strncat(string_1,string_2,input_number));
+	}
+	else
+	{
+		prompt_error("Buffer too low");
+	}
+
+	redraw_header(STRNCAT);
+	prompt_pause();
 }
 
 void demo_strncmp()
