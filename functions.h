@@ -18,6 +18,7 @@ void switch_display_back();
 void switch_display_alternative();
 void user_input(char*);
 void clear_buffer();
+void sigint_exit(int);
 int  can_concatenate(const char*,const char*);
 int  can_copy(const char*,const char*);
 void prompt_user(const char*);

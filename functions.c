@@ -179,3 +179,10 @@ void display_menu_options(const int number)
 
 	printf("\n\t%2c: Exit program\n",'Q');
 }
+
+void sigint_exit(int sigint)
+{
+	(void)sigint;
+	switch_display_back();
+	exit(0);
+}

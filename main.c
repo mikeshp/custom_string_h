@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 
 #include "globals.h"
 #include "functions.h"
@@ -20,9 +21,12 @@
 
 int main()
 {
+	// handle cntrl-c interrupt
+	signal(SIGINT,sigint_exit);
+	signal(SIGHUP,sigint_exit);
+
 	char  user_select[INPUT_SIZE];
 	const int punks_not_dead = 1;
-//	const int options_list   = 11;
 
 	prompt_hello();
 	switch_display_alternative();
@@ -33,9 +37,11 @@ int main()
 	{
 		clear_screen();
 		prompt_header(HEADER);
+		// the enum shifted due to top HEADER
+		// hence NUMBER - 1 to count functions
 		display_menu_options(NUMBER-1);
 
-		prompt_user("Enter 1-10 or Q");
+		prompt_user("Enter your selection");
 		user_input(user_select);
 
 		if (user_select[0] == 'Q' || user_select[0] == 'q')
