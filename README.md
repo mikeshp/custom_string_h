@@ -24,3 +24,7 @@ This is a study project.
 * Require refactoring to put all enums, counters and function pointers in order.
 * Screen and cursor position control is bulky and weak, the dedicated functions have side effects, which makes the demo functions bloated and hard to track.
 * Error handlers are too aggressive, instead of force quit program should prompt and return to main menu.
+
+---
+## License
+Distributed under the **MIT License**, see [LICENSE](LICENSE) for more details.
